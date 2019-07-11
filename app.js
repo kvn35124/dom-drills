@@ -68,12 +68,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     button.addEventListener('click', function() {
-        let list = document.createElement('ol');
+        let ol = document.createElement('ol');
+        let li = document.createElement('li');
         let listText = document.createTextNode('This is list item 1');
-        list.appendChild(listText);
-        header.appendChild(list);
+        li.appendChild(listText);
+        ol.appendChild(li);
+        header.appendChild(ol);
+        ol.addEventListener('click', function() {
+            let randomColorGenerator = Math.floor(Math.random() * colorArray.length);
+            ol.style.color = colorArray[randomColorGenerator];
+        })
+        ol.addEventListener('dblclick', function() {
+            ol.removeChild(li);
+        })
     })
-    
+
 
     //appended the div to the body
     document.body.appendChild(header);
