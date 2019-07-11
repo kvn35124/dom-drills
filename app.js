@@ -66,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
     button.className = ('b1');
     header.appendChild(button);
 
-
+//added button that created a list item which is able to change colors 
+//and delete itself
     button.addEventListener('click', function() {
         let ol = document.createElement('ol');
         let li = document.createElement('li');
