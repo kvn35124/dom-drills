@@ -50,7 +50,30 @@ document.addEventListener('DOMContentLoaded', function () {
     h6.appendChild(h6Text);
     header.appendChild(h6);
 
-    let colors = ['black', 'blue', 'green', 'purple', 'yellow',]
+
+    let colorArray = ['black', 'blue', 'green', 'purple', 'yellow', 'pink', 'darkorange', 'darkorchid'];
+
+    let randomColorGenerator = Math.floor(Math.random() * colorArray.length);
+    h1.style.color = colorArray[randomColorGenerator];
+
+    h1.addEventListener('dblclick', function() {
+        let randomColorGenerator = Math.floor(Math.random() * colorArray.length);
+        h1.style.color = colorArray[randomColorGenerator];
+    })
+
+    let button = document.createElement('button');
+    button.innerText = 'Click to add new list item';
+    button.className = ('b1');
+    header.appendChild(button);
+
+
+    button.addEventListener('click', function() {
+        let list = document.createElement('ol');
+        let listText = document.createTextNode('This is list item 1');
+        list.appendChild(listText);
+        header.appendChild(list);
+    })
+    
 
     //appended the div to the body
     document.body.appendChild(header);
