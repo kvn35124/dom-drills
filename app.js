@@ -68,19 +68,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //added button that created a list item which is able to change colors 
 //and delete itself
+    let ul = document.createElement('ul');
+    var counting = 1
+
     button.addEventListener('click', function() {
-        let ol = document.createElement('ol');
         let li = document.createElement('li');
-        let listText = document.createTextNode('This is list item 1');
+        let listText = document.createTextNode('This is list item ' + counting);
+        counting ++;  //counting = counting +1
         li.appendChild(listText);
-        ol.appendChild(li);
-        header.appendChild(ol);
-        ol.addEventListener('click', function() {
+        ul.appendChild(li);
+        header.appendChild(ul);
+        li.addEventListener('click', function() {
             let randomColorGenerator = Math.floor(Math.random() * colorArray.length);
-            ol.style.color = colorArray[randomColorGenerator];
+            li.style.color = colorArray[randomColorGenerator];
         })
-        ol.addEventListener('dblclick', function() {
-            ol.removeChild(li);
+        ul.addEventListener('dblclick', function() {
+            ul.removeChild(li);
         })
     })
 
